@@ -1,0 +1,63 @@
+{
+  "name": "precision-stopwatch",
+  "version": "1.0.0",
+  "description": "Always-on-top precision stopwatch with click controls",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build-appx": "electron-builder --win --x64"
+  },
+  "keywords": [
+    "stopwatch",
+    "timer",
+    "precision",
+    "always-on-top"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^37.3.1",
+    "electron-builder": "^24.0.0"
+  },
+  "build": {
+    "appId": "com.yourname.precision-stopwatch",
+    "productName": "Foreground Stopwatch",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      "renderer.html",
+      "renderer.js",
+      "preload.js",
+      "styles.css"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "appx",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "build/icon.png",
+      "publisherName": "CN=Foreground Stopwatch"
+    },
+    "appx": {
+      "displayName": "Foreground Stopwatch",
+      "identityName": "ForegroundStopwatch.ForegroundStopwatch",
+      "publisher": "CN=Foreground Stopwatch",
+      "publisherDisplayName": "Foreground Stopwatch",
+      "applicationId": "ForegroundStopwatch",
+      "backgroundColor": "#1e1e1e",
+      "languages": ["en-US"],
+      "showNameOnTiles": true,
+      "addAutoLaunchExtension": false
+    }
+  }
+}
